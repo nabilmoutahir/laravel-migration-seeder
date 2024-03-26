@@ -17,6 +17,17 @@ return new class extends Migration
         Schema::create('trains', function (Blueprint $table) {
             $table->id();
 
+            // COLONNE TABELLA
+            $table->string('company');
+            $table->string('departure_station');
+            $table->string('arrival_station');
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->unsignedMediumInteger('train_code');
+            $table->unsignedTinyInteger('number_of_carriages');
+            $table->boolean('in_time');
+            $table->boolean('deleted');
+
             $table->timestamps();
         });
     }
