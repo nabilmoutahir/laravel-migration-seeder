@@ -14,7 +14,12 @@ class PageController extends Controller
     {
 
         // TRENI DATA ODIERNA
-        $trains = Train::whereDate('departure_time', today())->get();
+        // $trains = Train::whereDate('departure_time', today())->get();
+
+        $trains = Train::all();
+
+        // TEST
+        // dd($trains);
 
         return view('home', compact('trains'));
     }
