@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 use App\Models\Train;
 
 class PageController extends Controller
-
 {
     // LOGICA ROUTE HOME
-    public function index(){
+    public function index()
+    {
 
-        $trains = Train::all();
+        // TRENI DATA ODIERNA
+        $trains = Train::whereDate('departure_time', today())->get();
 
         return view('home', compact('trains'));
     }
