@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -21,12 +20,12 @@ return new class extends Migration
             $table->string('company');
             $table->string('departure_station');
             $table->string('arrival_station');
-            $table->time('departure_time');
-            $table->time('arrival_time');
-            $table->unsignedMediumInteger('train_code');
+            $table->dateTime('departure_time');
+            $table->dateTime('arrival_time');
+            $table->string('train_code');
             $table->unsignedTinyInteger('number_of_carriages');
-            $table->boolean('in_time');
-            $table->boolean('deleted');
+            $table->boolean('in_time')->default(true);
+            $table->boolean('deleted')->default(false);
 
             $table->timestamps();
         });
